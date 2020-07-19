@@ -36,18 +36,6 @@ module.exports = {
   // Entities
   entities: [entities],
 
-  // Pool options
-  extra: {
-    typeCast(field, next) {
-      if (field.type === 'DATETIME') {
-        const val = field.string();
-        return val != null ? moment(val).format('YYYY-MM-DD HH:mm:ss') : null;
-      }
-
-      return next();
-    }
-  },
-
   // Migrations
   migrations: [migrations],
   cli: {
